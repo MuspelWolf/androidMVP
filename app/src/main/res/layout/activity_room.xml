@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Room">
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="187dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="36dp"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="140dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginTop="328dp"
+        android:background="@drawable/stopxxxhdpi"
+        android:onClick="ButtonStopEvent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/pinName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnStart"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btnPlayPause"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="140dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="328dp"
+        android:background="@drawable/pausexxxhdpi"
+        android:checked="false"
+        android:onClick="ButtonPlayPauseEvent"
+        android:textOff=""
+        android:textOn=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/wifiName"
+        app:layout_constraintEnd_toStartOf="@+id/btnStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="100dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="114dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:onClick="ButtonStartEvent"
+        android:background="@drawable/playxxxhdpi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnStop"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toEndOf="@+id/btnPlayPause"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:id="@+id/bottomLinear"
+        android:layout_marginTop="55dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStop"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/wifiName"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="WIFIName"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pinImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pinImage"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/pinImage"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="ff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/pinName"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/wifiName"
+            app:srcCompat="@drawable/code_xxxhdpi"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/pinName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="8dp"
+            android:hint="Clave de la Sala"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pupilsImage"
+            app:layout_constraintEnd_toStartOf="@+id/pupilsImage"
+            app:layout_constraintTop_toTopOf="@+id/pupilsImage"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/pupilsImage"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="2dp"
+            android:contentDescription="ff"
+            app:layout_constraintBottom_toBottomOf="@+id/pinImage"
+            app:layout_constraintEnd_toStartOf="@+id/pupilNumber"
+            app:layout_constraintTop_toTopOf="@+id/pinImage"
+            app:srcCompat="@drawable/people_xxxhdpi"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/pupilNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:text="999"
+            android:textAlignment="center"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/pupilsImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pupilsImage"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

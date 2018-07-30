@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
+        android:fontFamily="@font/myra_regular"
+        android:text="introducir pin de la sala"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/profPin"
+        android:layout_width="wrap_content"
+        android:layout_height="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp"
+        android:ems="4"
+        android:hint="0000"
+        android:inputType="text"
+        android:maxLength="4"
+        android:textAlignment="center">
+
+        <requestFocus />
+    </EditText>
+
+
+    <TextView
+        android:id="@+id/deviceOnline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profPin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/cantarell"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="14sp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/deviceOnline"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:text="Entrar en la sala" />
+
+    <TextView
+        android:id="@+id/wifiname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/cantarell"
+        android:gravity="center"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="14sp" />
+
+</RelativeLayout>
