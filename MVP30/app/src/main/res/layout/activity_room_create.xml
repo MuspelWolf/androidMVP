@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RoomCreate">
+
+
+    <Button
+        android:id="@+id/RoomStart"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="304dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="171dp"
+        android:background="@mipmap/rightarrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pinName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/wifiName"
+        android:layout_width="381dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="268dp"
+        android:hint="Nombre del WIFI"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RoomStart"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/pinName"
+        android:layout_width="252dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="268dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="169dp"
+        android:hint="Codigo"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/wifiName"
+        app:layout_constraintEnd_toStartOf="@+id/RoomStart"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="270dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="167dp"
+        app:layout_constraintBottom_toTopOf="@+id/wifiName"
+        app:layout_constraintEnd_toStartOf="@+id/pinName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/code"
+        android:contentDescription="@string/pinlockupimage" />
+
+
+</android.support.constraint.ConstraintLayout>
