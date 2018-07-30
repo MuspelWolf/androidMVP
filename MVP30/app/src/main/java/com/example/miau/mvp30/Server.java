@@ -1,5 +1,7 @@
 package com.example.miau.mvp30;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ import org.java_websocket.server.WebSocketServer;
 
 import static android.app.PendingIntent.getActivity;
 import static android.content.ContentValues.TAG;
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple WebSocketServer implementation. Keeps track of a "chatroom".
@@ -26,9 +29,14 @@ public class Server extends WebSocketServer {
 
     int clientCount = 0;
     private TextView pupilNo;
+    Activity context;
+
+    SharedPreferences pref = context.getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+    SharedPreferences.Editor editor = pref.edit();
 
     public Server(int port ) throws UnknownHostException {
         super( new InetSocketAddress( port ) );
+
     }
 
     public Server(InetSocketAddress address) {
@@ -41,6 +49,8 @@ public class Server extends WebSocketServer {
         /*broadcast( "new connection: " + handshake.getResourceDescriptor() );//This method sends a message to all clients connected*/
         Log.d(TAG, "new connection: " + handshake.getResourceDescriptor() );
         clientCount++;
+        editor.putInt("PupilsCount", clientCount );
+        editor.apply();
 
         System.out.println( conn.getRemoteSocketAddress().getAddress().getHostAddress() + " entered the room!" );
         Log.d( TAG, "Usuarios conectados:"+ clientCount );
@@ -50,6 +60,8 @@ public class Server extends WebSocketServer {
         /*broadcast( conn + " has left the room!" );*/
         System.out.println( conn + " has left the room!" );
         clientCount --;
+        editor.putInt("PupilsCount", clientCount );
+        editor.apply();
         Log.d( TAG, "Usuarios conectados:"+ clientCount );
     }
 

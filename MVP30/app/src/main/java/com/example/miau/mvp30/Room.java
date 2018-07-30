@@ -84,6 +84,9 @@ public class Room extends AppCompatActivity implements RecognitionListener {
         PupilsNo = findViewById( R.id.pupilNumber );
         wifiName = findViewById( R.id.wifiName );
 
+        PupilsNo.setText(getPreferences(MODE_PRIVATE).getInt("PupilsCount",1));
+
+
         saveCurrentAudio();
         Bundle bundle;
         bundle = getIntent().getExtras();
