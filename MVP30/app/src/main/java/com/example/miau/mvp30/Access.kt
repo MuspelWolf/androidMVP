@@ -82,14 +82,8 @@ class Access: AppCompatActivity(),ConnectivityReceiver.ConnectivityReceiverListe
                             deviceOnline.setText("El PIN introducido es incorrecto")
                             deviceOnline.visibility = View.VISIBLE
                         }
-
-
                     }
                 }
-
-
-
-
     }
 
 
@@ -198,8 +192,6 @@ class Access: AppCompatActivity(),ConnectivityReceiver.ConnectivityReceiverListe
         override fun onClose(code: Int, reason: String?, remote: Boolean) {
             open=false
             Log.e("Close: ", "closed with exit code $code additional info: $reason")
-
-
             }
 
 

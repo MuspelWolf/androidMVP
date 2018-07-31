@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -39,7 +40,6 @@ public class Room extends AppCompatActivity implements RecognitionListener {
     private static String fullRecord = "";
     private static boolean responseReceived = true;
     private String response;
-    private int noPupil;
 
     private static boolean chronoState = false;
     long stopTime = 0;
@@ -60,13 +60,12 @@ public class Room extends AppCompatActivity implements RecognitionListener {
     private Chronometer chrono;
     private TextView pinName;
     private TextView wifiName;
-    private TextView PupilsNo;
+    private TextView pupilsNo;
 
     private Intent speechIntent;
 
     InetSocketAddress inetSocketAddress = new InetSocketAddress( 8080 );
     Server ServerControl = new Server( inetSocketAddress );
-
 
     @Override
     public void onCreate(Bundle SavedInstanceState) {
@@ -79,13 +78,11 @@ public class Room extends AppCompatActivity implements RecognitionListener {
 
         ServerControl.start();
         speechIntent = new Intent( RecognizerIntent.ACTION_RECOGNIZE_SPEECH );
+        this.registerReceiver(mWifiStateChangedReceiver,new IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION));
 
         pinName = findViewById( R.id.pinName );
-        PupilsNo = findViewById( R.id.pupilNumber );
+        pupilsNo = findViewById( R.id.pupilNumber );
         wifiName = findViewById( R.id.wifiName );
-
-        PupilsNo.setText(getPreferences(MODE_PRIVATE).getInt("PupilsCount",1));
-
 
         saveCurrentAudio();
         Bundle bundle;
@@ -103,7 +100,6 @@ public class Room extends AppCompatActivity implements RecognitionListener {
         btnStop.setVisibility( View.VISIBLE );
         chrono.start();
         chrono.setBase( SystemClock.elapsedRealtime() + stopTime );
-        btnPlayPause.setText( "Pause" );
         chronoState = false;
         startVoiceRecognitionCycle( speechIntent );
         muteAudio();
@@ -202,6 +198,7 @@ public class Room extends AppCompatActivity implements RecognitionListener {
     @Override
     public void onBufferReceived(byte[] buffer) {
         Log.d( TAG, "onBufferReceived" );
+        this.pupilsNo.setText( ServerControl.clientCount );
     }
 
     @Override
@@ -301,7 +298,6 @@ public class Room extends AppCompatActivity implements RecognitionListener {
                             e.printStackTrace();
                         }
                     }
-                    updateUI(true);
                     break;
                 case WifiManager.WIFI_STATE_ENABLING:
                     break;
