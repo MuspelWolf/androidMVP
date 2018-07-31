@@ -313,6 +313,12 @@ public class Room extends AppCompatActivity implements RecognitionListener {
     private void updateUI(boolean isConnected) {
 
         if(!isConnected) {
+            wifiName.setText( "No estás conectado" );
+            pinName.setText( "0000" );
+            chrono.stop();
+            ServerControl.broadcast( endSpeech );
+            stopVoiceRecognition();
+            resetAudio();
             new AlertDialog.Builder(Room.this).
                     setTitle("Conexion Perdida").
                     setMessage("Vas a volver a la pantalla de creacion de sala").
@@ -324,7 +330,7 @@ public class Room extends AppCompatActivity implements RecognitionListener {
                             Intent backToCreateRoom = new Intent( Room.this, RoomCreate.class );
                             startActivity( backToCreateRoom );
                         }
-                    } );
+                    } ).show();
 
         }
     }

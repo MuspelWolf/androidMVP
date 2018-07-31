@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@color/background"
     tools:layout_editor_absoluteY="81dp"
      >
 
@@ -20,6 +19,7 @@
         android:text="una vez conectado a su wifi use el codigo del instructor"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/colorPrimary"
         android:textSize="14sp" />
 
     <EditText
@@ -62,9 +62,11 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="215dp"
+        android:background="@color/colorPrimary"
         android:enabled="false"
         android:fontFamily="@font/cantarell"
-        android:text="Continuar" />
+        android:text="Continuar"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/wifiname"

@@ -164,6 +164,7 @@ public class RoomCreate extends AppCompatActivity {
 
         if(!isConnected) {
             WIFI.setText( "No estás conectado" );
+            PIN.setText( "0000" );
             btnCreate.setEnabled( false );
         } else {
             WIFI.setText( getWIFIName() );
@@ -176,7 +177,7 @@ public class RoomCreate extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent intent = new Intent(this, Menu.class);
+                Intent intent = new Intent(this, com.example.miau.mvp30.Menu.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

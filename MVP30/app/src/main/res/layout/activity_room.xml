@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/chronoRelative"
+        android:layout_marginTop="100dp"
         android:gravity="center">
 
         <Chronometer
@@ -18,7 +19,8 @@
             android:layout_width="154dp"
             android:layout_height="154dp"
             android:layout_marginBottom="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="100dp"
+            android:textColor="@color/light"
             android:background="@mipmap/cronocircle"
             android:textAlignment="center"
             android:gravity="center_vertical"
@@ -30,6 +32,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@+id/chronoRelative"
         android:gravity="center"
         android:orientation="horizontal">
@@ -40,6 +43,8 @@
             android:layout_height="88dp"
             android:background="@mipmap/pause"
             android:checked="false"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:gravity="center_vertical"
             android:onClick="ButtonPlayPauseEvent"
             android:visibility="invisible" />
@@ -48,6 +53,8 @@
             android:id="@+id/btnStart"
             android:layout_width="100dp"
             android:layout_height="97dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@mipmap/play"
             android:gravity="center"
             android:onClick="ButtonStartEvent" />
@@ -56,6 +63,8 @@
             android:id="@+id/btnStop"
             android:layout_width="88dp"
             android:layout_height="88dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@mipmap/stop"
             android:gravity="center_vertical"
             android:onClick="ButtonStopEvent"
@@ -67,9 +76,10 @@
         android:id="@+id/bottomLinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/light"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp">
 
         <TextView
             android:id="@+id/wifiName"
@@ -124,8 +134,8 @@
             android:id="@+id/pupilsImage"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:layout_marginEnd="2dp"
             android:layout_gravity="center_vertical"
+            android:layout_marginEnd="2dp"
             android:contentDescription="ff"
             app:layout_constraintBottom_toBottomOf="@+id/pinImage"
             app:layout_constraintEnd_toStartOf="@+id/pupilNumber"
