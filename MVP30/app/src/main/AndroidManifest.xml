@@ -34,7 +34,12 @@
         </activity>
 
        <activity android:name=".Room"
-           android:label="Sesion">
+           android:label="Sesion"
+           android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
+           android:parentActivityName=".RoomCreate">
+           <meta-data
+               android:name="android.support.PARENT_ACTIVITY"
+               android:value=".RoomCreate"/>>
        </activity>
 
         <activity android:name=".Menu">
