@@ -127,7 +127,7 @@ public class Room extends AppCompatActivity implements RecognitionListener {
             chronoState = true;
         } else {
             chrono.start();
-            btnPlayPause.setText( "Pause" );
+            btnPlayPause.setBackgroundResource( R.mipmap.pause );
             chrono.setBase( SystemClock.elapsedRealtime() + stopTime );
             startVoiceRecognitionCycle( speechIntent );
             chronoState = false;
