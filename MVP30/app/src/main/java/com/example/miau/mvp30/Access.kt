@@ -126,7 +126,7 @@ class Access: AppCompatActivity(),ConnectivityReceiver.ConnectivityReceiverListe
     private fun showMessage(isConnected: Boolean) {
         val connManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
-        if (!isConnected) {
+        if (!isConnected||!mWifi.isConnected) {
             deviceOnline.text=""
             wifiname.text = "No hay conexión WIFI"
             profPin.setEnabled(false)
@@ -138,6 +138,7 @@ class Access: AppCompatActivity(),ConnectivityReceiver.ConnectivityReceiverListe
             profPin.setEnabled(true)
             b2.isEnabled = true
         }
+
 
 
     }
