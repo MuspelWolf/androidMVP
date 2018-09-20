@@ -45,6 +45,7 @@ class Access: AppCompatActivity(),ConnectivityReceiver.ConnectivityReceiverListe
     var newtext=""
     lateinit var mclient:ChatClient
 
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_access)
