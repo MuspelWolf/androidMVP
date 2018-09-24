@@ -124,7 +124,7 @@ public class RoomCreate extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission( this, Manifest.permission.INTERNET )
                 != PackageManager.PERMISSION_GRANTED) {
             String[] tempPerms = {Manifest.permission.INTERNET};
-            ActivityCompat.requestPermissions( this, tempPerms, 123 );
+            ActivityCompat.requestPermissions( this, tempPerms,123 );
         }
     }
 
@@ -151,6 +151,7 @@ public class RoomCreate extends AppCompatActivity {
     } // Parses int numbers into HEX code
     public String getWIFIName(){
         WifiManager wifiManager = (WifiManager) this.getApplicationContext().getSystemService(WIFI_SERVICE);
+        assert wifiManager != null;
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         String[] wifiName = wifiInfo.toString().split(",");
         String wifiFinalName = wifiName[0].replace("SSID: "," ");

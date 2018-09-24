@@ -1,7 +1,6 @@
 package com.example.miau.mvp30;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -18,7 +17,6 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -91,7 +89,7 @@ public class Room extends AppCompatActivity implements RecognitionListener {
         bundle = getIntent().getExtras();
         PIN = bundle.getString( "PIN" );
         WIFI = bundle.getString( "wifiName" );
-        pinName.setText(PIN);
+        pinName.setText( PIN );
         wifiName.setText( WIFI );
 
     }
@@ -166,8 +164,11 @@ public class Room extends AppCompatActivity implements RecognitionListener {
 
     //Mutes Beep Speech Sound
     public void muteAudio() {
-        AudioManager audio = (AudioManager) getSystemService( Context.AUDIO_SERVICE );
-        audio.setStreamVolume( AudioManager.STREAM_MUSIC, 0, AudioManager.FLAG_SHOW_UI );
+        AudioManager amanager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
+        amanager.setStreamMute(AudioManager.STREAM_ALARM, true);
+        amanager.setStreamMute(AudioManager.STREAM_MUSIC, true);
+        amanager.setStreamMute(AudioManager.STREAM_RING, true);
     }
 
     //Save User Audio
@@ -195,7 +196,9 @@ public class Room extends AppCompatActivity implements RecognitionListener {
     }
 
     @Override
-    public void onRmsChanged(float rmsdB) {}
+    public void onRmsChanged(float rmsdB) {
+
+    }
 
     @Override
     public void onBufferReceived(byte[] buffer) {
@@ -302,6 +305,7 @@ public class Room extends AppCompatActivity implements RecognitionListener {
                     }
                     break;
                 case WifiManager.WIFI_STATE_ENABLING:
+
                     break;
                 case WifiManager.WIFI_STATE_UNKNOWN:
                     break;

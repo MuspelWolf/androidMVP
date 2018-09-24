@@ -164,7 +164,7 @@ public class RoomCreate extends AppCompatActivity {
      private void updateUI(boolean isConnected) {
 
          if(!isConnected) {
-             WIFI.setText( "No estás conectado" );
+             WIFI.setText( "Conectate a la red WIFI" );
              btnCreate.setEnabled( false );
          } else {
              WIFI.setText( getWIFIName() );
