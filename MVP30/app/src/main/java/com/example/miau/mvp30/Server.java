@@ -1,7 +1,6 @@
 package com.example.miau.mvp30;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -19,7 +18,6 @@ import org.java_websocket.server.WebSocketServer;
 
 import static android.app.PendingIntent.getActivity;
 import static android.content.ContentValues.TAG;
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple WebSocketServer implementation. Keeps track of a "chatroom".
