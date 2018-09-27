@@ -95,6 +95,7 @@ public class Room extends AppCompatActivity implements RecognitionListener {
     }
 
     public void ButtonStartEvent(View view) {
+        muteAudio();
         btnPlay.setVisibility( View.GONE );
         btnPlayPause.setVisibility( View.VISIBLE );
         btnStop.setVisibility( View.VISIBLE );
@@ -102,15 +103,13 @@ public class Room extends AppCompatActivity implements RecognitionListener {
         chrono.setBase( SystemClock.elapsedRealtime() + stopTime );
         chronoState = false;
         startVoiceRecognitionCycle( speechIntent );
-        muteAudio();
+
     }
 
     public void ButtonStopEvent(View view) {
         chrono.stop();
-        ServerControl.broadcast( endSpeech );
-        stopVoiceRecognition();
+        onBackPressed();
         resetAudio();
-        finish();
     }
 
     public void ButtonPlayPauseEvent(View view) {
@@ -203,7 +202,7 @@ public class Room extends AppCompatActivity implements RecognitionListener {
     @Override
     public void onBufferReceived(byte[] buffer) {
         Log.d( TAG, "onBufferReceived" );
-        this.pupilsNo.setText( ServerControl.clientCount );
+
     }
 
     @Override
@@ -259,6 +258,7 @@ public class Room extends AppCompatActivity implements RecognitionListener {
     @Override
     public void onPartialResults(Bundle partialResults) {
         receiveResults( partialResults );
+        this.pupilsNo.setText(String.valueOf(ServerControl.clientCount));
     }
 
     @Override
@@ -280,7 +280,11 @@ public class Room extends AppCompatActivity implements RecognitionListener {
         }
     }
 
+    @Override
     public void onBackPressed() {
+        super.onBackPressed();
+        ServerControl.broadcast( endSpeech );
+        stopVoiceRecognition();
     }
 
     private BroadcastReceiver mWifiStateChangedReceiver = new BroadcastReceiver() {
@@ -349,5 +353,14 @@ public class Room extends AppCompatActivity implements RecognitionListener {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected
+    void onDestroy() {
+        super.onDestroy();
+        ServerControl.broadcast( endSpeech );
+        stopVoiceRecognition();
+
     }
 }

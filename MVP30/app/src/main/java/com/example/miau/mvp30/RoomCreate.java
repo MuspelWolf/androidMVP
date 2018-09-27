@@ -50,6 +50,8 @@ public class RoomCreate extends AppCompatActivity {
         checkInternetPermission();
         checkNetWorkPermission();
 
+        WIFI.setText( getWIFIName() );
+
         btnCreate.setOnClickListener( new View.OnClickListener() {
             @Override
             public

@@ -13,7 +13,6 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:fontFamily="@font/cantarell"
         android:keepScreenOn="true"
         android:text="Estableciendo la conexión..."
         android:textAppearance="?android:attr/textAppearanceLarge"

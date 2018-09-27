@@ -15,7 +15,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="59dp"
-        android:fontFamily="@font/myra"
         android:text="una vez conectado a su wifi use el codigo del instructor"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -49,7 +48,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="183dp"
-        android:fontFamily="@font/cantarell"
         android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="14sp"
@@ -64,7 +62,6 @@
         android:layout_marginTop="215dp"
         android:background="@color/colorPrimary"
         android:enabled="false"
-        android:fontFamily="@font/cantarell"
         android:text="Continuar"
         android:textColor="@android:color/white" />
 
@@ -76,7 +73,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="0dp"
         android:background="@color/light"
-        android:fontFamily="@font/cantarell"
         android:gravity="center"
         android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge"

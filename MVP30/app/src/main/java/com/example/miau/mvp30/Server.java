@@ -27,9 +27,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Server extends WebSocketServer {
 
-    int clientCount = 0;
-    private TextView pupilNo;
-    Activity context;
+    public static int clientCount = 0;
 
 
     public Server(int port ) throws UnknownHostException {
