@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.support.v4.app.DialogFragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.app.NavUtils
@@ -72,7 +73,8 @@ class Access : AppCompatActivity(),ConnectivityReceiver.ConnectivityReceiverList
                     mclient = ChatClient(URI(getIP()), Draft_6455(), emptyMap(), 100000)
                     profPin.setText("")
                     mclient.connect()
-                    deviceOnline.text = "No se encuentra ninguna conexión con este PIN"
+                    var count=Countdown()
+                    count.start()
                     deviceOnline.visibility = View.VISIBLE
                 } else { // si hexadecimal=false
                     deviceOnline.setText("El PIN introducido es incorrecto")
@@ -151,13 +153,15 @@ class Access : AppCompatActivity(),ConnectivityReceiver.ConnectivityReceiverList
         }
 
         override fun onOpen(handshakedata: ServerHandshake?) {
+            open = true
+            profPin.isClickable=false
+            b2.isClickable=false
             runOnUiThread {
                 val fragmentManager = getSupportFragmentManager()
                 val transaction = fragmentManager.beginTransaction()
                 transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 transaction.add(android.R.id.content, subFragment).commit()
             }
-            open = true
             Log.e("Open: ", "new connection opened")
         }
 
@@ -246,5 +250,15 @@ class Access : AppCompatActivity(),ConnectivityReceiver.ConnectivityReceiverList
 
             private val TAG = "Access"
         }
+    }
+    inner class Countdown(): CountDownTimer(3000,1000){
+        override fun onTick(p0: kotlin.Long) {
+        }
+
+        override fun onFinish() {
+            if(!open)
+                deviceOnline.setText("No se encuentra conexión")
+        }
+
     }
 }
