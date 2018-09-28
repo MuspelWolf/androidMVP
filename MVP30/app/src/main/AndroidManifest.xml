@@ -24,7 +24,7 @@
                 android:value="com.example.miau.mvp30.Menu" />
         </activity>
 
-        <activity android:name="talentum.mvp40.RoomCreate"
+        <activity android:name="com.example.miau.mvp30.RoomCreate"
             android:label="Inicio"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:parentActivityName=".Menu">
@@ -33,14 +33,14 @@
                 android:value=".Menu"/>
         </activity>
 
-       <activity android:name="talentum.mvp40.Room"
+       <activity android:name="com.example.miau.mvp30.Room"
            android:label="Sesion"
            android:screenOrientation="portrait"
            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
-           android:parentActivityName="talentum.mvp40.RoomCreate">
+           android:parentActivityName="com.example.miau.mvp30.RoomCreate">
            <meta-data
                android:name="android.support.PARENT_ACTIVITY"
-               android:value="talentum.mvp40.RoomCreate"/>
+               android:value="com.example.miau.mvp30.RoomCreate"/>
        </activity>
 
         <activity android:name=".Menu"
